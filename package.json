@@ -30,9 +30,9 @@
       "url": "https://github.com/Kaosisochukwu"
     },
     {
-      "name": "Contributor Name 1",
-      "email": "contributor1@example.com",
-      "url": "https://github.com/contributor1"
+      "name": "Rahman Mian",
+      "email": "rmian@umass.edu",
+      "url": "https://github.com/rahmanMian"
     },
     {
       "name": "Contributor Name 2",
@@ -51,7 +51,7 @@
     "validate-html": "html-validate 'src/**/*.html'",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
     "prettier": "prettier 'src/**/*.{html,css,js}' --write"
-},
+  },
   "devDependencies": {
     "html-validate": "^8.18.1",
     "http-server": "^14.1.1",
