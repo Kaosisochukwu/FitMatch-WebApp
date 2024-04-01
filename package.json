@@ -18,7 +18,11 @@
   "bugs": {
     "url": "https://github.com/Kaosisochukwu/FitMatch-WebApp/issues"
   },
-  "keywords": ["fitness", "partner matching", "web app"],
+  "keywords": [
+    "fitness",
+    "partner matching",
+    "web app"
+  ],
   "authors": [
     {
       "name": "Kaosisochukwu Nwosu",
@@ -44,9 +48,13 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "validate-html": "html-validate 'src/**/*.html",
+    "validate-html": "html-validate 'src/**/*.html'",
+    "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
     "prettier": "prettier 'src/**/*.{html,css,js}' --write"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+},
+  "devDependencies": {
+    "html-validate": "^8.18.1",
+    "http-server": "^14.1.1",
+    "prettier": "^3.2.5"
+  }
 }
