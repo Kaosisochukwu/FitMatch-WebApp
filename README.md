@@ -5,8 +5,8 @@ Find your perfect workout buddy and make fitness fun with our dynamic partner ma
 Group Members:
 
 Rahman Mian,
-,Ahmed Saeed
-,Kaosi Nwosu
+Ahmed Saeed,
+Kaosi Nwosu
 Khameran Hotchkiss
 
 Core Features and Front-End Design:
