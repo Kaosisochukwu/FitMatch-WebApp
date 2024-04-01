@@ -6,7 +6,7 @@ Group Members:
 
 Rahman Mian,
 Ahmed Saeed,
-Kaosi Nwosu
+Kaosi Nwosu and
 Khameran Hotchkiss
 
 Core Features and Front-End Design:
