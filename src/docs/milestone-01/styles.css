@@ -12,6 +12,7 @@ body {
     padding: 20px; 
     box-sizing: border-box;
     background-color: lightcyan;
+    font-family: 'Arial', sans-serif;
 }
 
 
@@ -40,15 +41,21 @@ p {
     padding-bottom: 20px;
 }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #0066cc;
-}
+nav {
+    background-color: goldenrod; 
+    padding: 10px 20px;
+    text-align: center; 
+  }
+  
+  nav a {
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+  }
+  
+  nav a:hover {
+    color: #ffd700; 
+  }
 
 button {
     background-color: #0066cc;
