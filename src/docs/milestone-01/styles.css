@@ -48,7 +48,8 @@ nav {
   }
   
   nav a {
-    color: white; 
+    color: white;
+    font-size: large; 
     text-decoration: none; 
     margin: 0 10px; 
   }
@@ -57,19 +58,23 @@ nav {
     color: #ffd700; 
   }
 
-button {
+  button#countButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     background-color: #0066cc;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 999; 
 }
 
-button:hover {
+button#countButton:hover {
     background-color: #0055aa;
 }
 
-button:focus {
+button#countButton:focus {
     outline: none;
 }
