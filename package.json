@@ -51,7 +51,7 @@
     "validate-html": "html-validate 'src/**/*.html'",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
     "prettier": "prettier 'src/**/*.{html,css,js}' --write",
-    "start": "concurrently \"node src/server/server.js\" \"http-server -p 3000\""
+    "start": "concurrently \"node src/server/server.js\" \"http-server -p 3000 -a localhost -c-1 src/client\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
