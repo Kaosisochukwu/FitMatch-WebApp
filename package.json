@@ -50,11 +50,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "validate-html": "html-validate 'src/**/*.html'",
     "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
-    "prettier": "prettier 'src/**/*.{html,css,js}' --write"
+    "prettier": "prettier 'src/**/*.{html,css,js}' --write",
+    "start": "concurrently \"node src/server/server.js\" \"http-server -p 3000\""
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "html-validate": "^8.18.1",
     "http-server": "^14.1.1",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "pouchdb": "^8.0.1",
+    "serve": "^12.0.0"
   }
 }
