@@ -49,7 +49,7 @@
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "validate-html": "html-validate 'src/**/*.html'",
-    "milestone-01": "http-server src/docs/milestone-01 -p 3000 -c-1 -o -s",
+    "milestone-02": "http-server src/client/milestone-02 -p 3000 -c-1 -o -s",
     "prettier": "prettier 'src/**/*.{html,css,js}' --write",
     "start": "concurrently \"node src/server/server.js\" \"http-server -p 3000 -a localhost -c-1 -o src/client\""
   },
