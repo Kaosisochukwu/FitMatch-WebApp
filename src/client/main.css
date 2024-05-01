@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Espano&display=swap');
 
 #headerRow{
     position: fixed;
@@ -43,10 +42,14 @@ img{
 }
 
 
+#title{
+    margin-left: 20px;
+}
 
 
-
-
+#title:hover{
+    cursor: pointer;
+}
 
 body {
     --color-primary: #009579;
@@ -59,11 +62,9 @@ body {
     margin: 0;
     height: 100vh;
     font-size: 18px;
-    background: url(./background.jpg);
-    background-size: cover;
 }
 
-.loginContainer {
+#loginContainer {
     width: 400px;
     max-width: 400px;
     margin: 1rem;
@@ -71,9 +72,13 @@ body {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
     background: #ffffff;
+    position: absolute;
+    left: 33%;
+    top:25%;
+    
 }
 
-.loginContainer,
+#loginContainer,
 .form__input,
 .form__button {
     font: 500 1rem 'Quicksand', sans-serif;
@@ -101,13 +106,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.form__message--success {
-    color: var(--color-success);
-}
 
-.form__message--error {
-    color: var(--color-error);
-}
 
 .form__input-group {
     margin-bottom: 1rem;
@@ -122,7 +121,7 @@ body {
     border: 1px solid #dddddd;
     outline: none;
     background: #eeeeee;
-    transition: background 0.2s, border-color 0.2s;
+    transition: border-color 0.2s;
 }
 
 .form__input:focus {
@@ -141,26 +140,8 @@ body {
     color: var(--color-error);
 }
 
-.form__button {
-    width: 100%;
-    padding: 1rem 2rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #ffffff;
-    border: none;
-    border-radius: var(--border-radius);
-    outline: none;
-    cursor: pointer;
-    background: var(--color-primary);
-}
 
-.form__button:hover {
-    background: var(--color-primary-dark);
-}
 
-.form__button:active {
-    transform: scale(0.98);
-}
 
 .form__text {
     text-align: center;
@@ -195,15 +176,15 @@ border: 0;
 cursor: pointer;
 border-radius: 8px;
 padding: 14px 24px 16px;
-font-size: 18px;
+font-size: 20px;
 font-weight: 700;
 line-height: 1;
-transition: transform 200ms,background 200ms;
+transition: transform 200ms;
 background: transparent;
 color: #000000;
 box-shadow: 0 0 0 3px #000000 inset;
 position: absolute;
-top: 67%;
+top: 62%;
 left: 18%;
 transform: translate(-50%, -50%);
 }
@@ -216,3 +197,184 @@ transform: translate(-50%, -50%);
     background-color: black; 
 } 
 
+.form__button{
+display: inline-block;
+outline: 0;
+border: 0;
+cursor: pointer;
+border-radius: 8px;
+padding: 14px 24px 16px;
+font-size: 20px;
+font-weight: 700;
+width: 300px;
+line-height: 1;
+transition: transform 200ms,background 200ms;
+background: transparent;
+color: #000000;
+box-shadow: 0 0 0 3px #000000 inset;
+margin-left: 6%;
+
+}
+
+.form__button:hover{
+    transform: translate(2px, 2px);
+}
+
+
+/*Workout CSS*/
+
+/* styles.css */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+  
+
+  
+#workoutContainer { 
+    display: flex; 
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 1000px; 
+    margin: 1rem auto; 
+    padding: 10px; 
+    gap: 20px; 
+} 
+  
+.inputs { 
+    width: 100%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 20px; 
+    height: fit-content; 
+} 
+  
+.inputs>div { 
+    height: 100%; 
+    display: flex; 
+    justify-content: space-between; 
+    flex-direction: column; 
+} 
+  
+label { 
+    font-size: 0.9rem; 
+} 
+  
+input, 
+label { 
+    display: block; 
+} 
+  
+input { 
+    margin-top: 8px; 
+    margin-bottom: 5px; 
+    padding: 10px; 
+    font-size: large; 
+    border-color: black; 
+    border-radius: 5px; 
+    width: 100%; 
+} 
+  
+input:focus-visible { 
+    outline: 2px solid #ec4899; 
+} 
+  
+input::-webkit-outer-spin-button, 
+input::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+} 
+  
+
+  
+#submit { 
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+
+    font-size: 1.3rem; 
+    border-radius: 5px; 
+    color: black;
+    border-color: black; 
+    font-weight: bold; 
+    transition: scale 0.3s ease-in-out; 
+} 
+  
+#editSection{ 
+    width: 100%; 
+    display: flex; 
+    gap: 25px; 
+    justify-content: space-between; 
+} 
+  
+#editSection > button { 
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    font-size: 1.3rem; 
+    border-radius: 5px; 
+    color: white; 
+    font-weight: bold; 
+    transition: scale 0.3s ease-in-out; 
+} 
+  
+#updateEntry { background-image:  
+      linear-gradient(to right, #ec4899, #8b5cf6); } 
+  
+#cancelEdit{ background-color: #ef4444; } 
+  
+#submit:hover, #updateEntry:hover, #cancelEdit:hover { scale: 1.02; } 
+  
+.hidden{ display: none !important; } 
+  
+.edit, .delete{ 
+    margin: 0 auto; 
+    padding: 5px 10px; 
+    font-size: 1.1rem; 
+    border-radius: 5px; 
+    background-color: transparent; 
+    color: white; 
+    border: 1px solid white; 
+} 
+  
+.edit:hover, .delete:hover{ 
+    background-color: #0a0a0a; 
+} 
+  
+table { 
+    width: 100%; 
+    position: relative; 
+    overflow: hidden; 
+    border-color: black ;
+    background-color: grey;
+} 
+  
+th, 
+td { 
+    text-align: center; 
+    padding: 10px; 
+    border: 0; 
+} 
+
+  
+tbody > tr:hover{ 
+    background-color: #737373; 
+    color: black; 
+} 
+  
+.delete-animation{ 
+    background-color: #ef4444 !important; 
+    animation: deleteAnimate 0.4s linear forwards; 
+} 
+  
+@keyframes deleteAnimate{ 
+    to{ 
+        transform: translateX(100%); 
+    } 
+}
