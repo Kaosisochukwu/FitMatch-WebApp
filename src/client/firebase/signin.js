@@ -37,6 +37,10 @@ signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    sessionStorage.setItem("user-info", JSON.stringify({
+            user: user.uid
+    }))
+    
     // ...
     alertBar.textContent = "Successfully Logged In"
     setTimeout(() => {
@@ -48,4 +52,23 @@ signInWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     alertBar.textContent = "Incorrect Email or Password"
   });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (sessionStorage.getItem("user-info")) {
+      // User is logged in, show workout link
+      document.getElementById("workoutLink").classList.remove("hidden");
+      document.getElementById("logoutList").classList.remove("hidden");
+      document.getElementById("loginList").classList.add("hidden");
+      document.getElementById("getStartedList").classList.add("hidden");
+      document.getElementById("signupButton").classList.add("hidden");
+  } else {
+      // User is not logged in, hide workout link and show login link
+      document.getElementById("workoutLink").classList.add("hidden");
+      document.getElementById("logoutList").classList.add("hidden");
+      document.getElementById("loginList").classList.remove("hidden");
+      document.getElementById("getStartedList").classList.remove("hidden");
+      document.getElementById("signupButton").classList.remove("hidden");
+  }
 });

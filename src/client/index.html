@@ -11,8 +11,8 @@
     <script type="module" src="./firebase/register.js" defer></script>
     <script type="module" src="./firebase/signin.js" defer></script>
     <script type="module" src="./firebase/forgotpassword.js" defer></script>
-    <script type="module" src="./login.js"></script> <!--login script-->
-    <script type="module" src="./workout.js"></script> 
+    <script type="module" src="./login.js" defer></script> <!--login script-->
+    <script type="module" src="./workout.js" defer></script> 
 </head>
 
 <body>
@@ -24,22 +24,22 @@
 
     <nav id="landingNavbar1">
         <ul>
-            <li><a href="#" id="workoutLink">Workout</a></li>
-            <li><a href="#">Session Post</a></li>
+            <li><a href="#" id="workoutLink" class="hidden">Workout Tracker</a></li>
         </ul>
     </nav>
     <nav id="landingNavbar2">
         <ul id="landingNavbar2Ul">
-            <li><a href="#" id="loginList">Log In</a></li>
-            <li><a href="#" id="getStartedList">Get Started</a></li>
+            <li><a href="#" id="loginList" class="hidden">Log In</a></li>
+            <li><a href="#" id="getStartedList" class="hidden">Get Started</a></li>
+            <li><a href="#" id="logoutList" class="hidden">Log Out</a></li>
         </ul>
     </nav>
    </ul>
    </div>
 
    <div id="landingContainer">
-    <h2 id="imageText">Find Your People Today.</h2>
-    <button type="button" id="signupButton" >SIGN UP</button>
+    <h2 id="imageText">Track Your Workout Today.</h2>
+    <button type="button" id="signupButton" class="hidden" >SIGN UP</button>
    <img src="./images/8225.jpg" width="1200px" height="800px">
    </div>
 
