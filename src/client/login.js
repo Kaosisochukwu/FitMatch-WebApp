@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
-            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
-                setInputError(inputElement, "Username must be at least 10 characters in length");
+            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
+                setInputError(inputElement, "Username must be greater than 4 characters in length");
             }
         });
 
@@ -156,12 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    document.querySelector("#signupContinue").addEventListener("click", async function(event) {
-        event.preventDefault(); // Prevent the default click behavior
-    
-        // Call the createUser function
-        await createUser();
-    });
 
     document.querySelector("#loginContinue").addEventListener("click", async function(event) {
         event.preventDefault(); // Prevent the default click behavior
@@ -253,13 +247,7 @@ async function readUser(){
         const response = await fetch(`${URL}/read?name=${login_id}&password=${login_password}`, {
             method: "GET",
         });
-
         const responseData =  await response.text();
-
-        document.querySelector("#loginMessage").innerHTML = responseData + " Successfully Logged in";
-
-        document.querySelector("#loginList").style.display = "none";
-        document.querySelector("#getStartedList").textContent = "Hi " + responseData;
     } catch (error) {
         console.error("Error creating user:", error);
         // Handle error, show an alert or log it

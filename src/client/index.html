@@ -8,6 +8,9 @@
 
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="./firebase/register.js" defer></script>
+    <script type="module" src="./firebase/signin.js" defer></script>
+    <script type="module" src="./firebase/forgotpassword.js" defer></script>
     <script type="module" src="./login.js"></script> <!--login script-->
     <script type="module" src="./workout.js"></script> 
 </head>
@@ -44,14 +47,14 @@
  
 
     <!--SIGNIN/SIGNUP-->
-    <div id="loginContainer">
+    <div id="loginContainer" style = "display: none">
         <!--LOGIN PAGE HTML-->
         <form class="form form--hidden" id="login">
             <h1 class="form__title">Login</h1>
             <div id="loginMessage" class="form__message form__message--error"></div>
             <div class="form__input-group">
                 <input type="text" id="loginName" class="form__input" autofocus placeholder="Username or email">
-                <div class="form__input-error-message"></div>
+                <div  class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" id="loginPassword" class="form__input" autofocus placeholder="Password">
@@ -71,19 +74,19 @@
             <div id="createAccountMessage" class="form__message form__message--error"></div>
             <div class="form__input-group">
                 <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
-                <div class="form__input-error-message"></div>
+                <div id="usernameError" class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
+                <div id="emailError" class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" id="signupPass" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
+                <div  id="passwordError" class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password"  id="signupPass1" class="form__input" autofocus placeholder="Confirm password">
-                <div class="form__input-error-message"></div>
+                <div id="passwordMatchError" class="form__input-error-message"></div>
             </div>
             <button class="form__button" id="signupContinue" type="submit">Continue</button>
             <p class="form__text">
@@ -93,12 +96,12 @@
         <!--FORGOT PASSWORD PAGE-->
         <form class="form form--hidden" id="forgotPassword">
             <h1 class="form__title">Forgot Password</h1>
-            <div class="form__message form__message--error"></div>
+            <div id="forgotPasswordMessage" class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Username or email">
+                <input type="text" id="forgotPasswordEmail" class="form__input" autofocus placeholder="Username or email">
                 <div class="form__input-error-message"></div>
             </div>
-            <button class="form__button" type="submit">Continue</button>
+            <button id="forgotSubmit" class="form__button" type="submit">Continue</button>
             <p class="form__text">
                 <a class="form__link" href="./" id="linkLoginPass" style="font-size: 1rem">Already have an account? Sign in</a>
             </p>
