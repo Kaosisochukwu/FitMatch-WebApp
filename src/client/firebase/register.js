@@ -21,7 +21,7 @@ const auth = getAuth(app);
 
 //get all sign up inputs
 
-const userName = document.getElementById("signupUsername").value;
+
 const email = document.getElementById("signupEmail").value;
 const password = document.getElementById("signupPass").value;
 const passwordCheck = document.getElementById("signupPass1").value;
@@ -34,7 +34,6 @@ signupBtn.addEventListener("click", (event) =>{
 const email = document.getElementById("signupEmail").value;
 const password = document.getElementById("signupPass").value;
 const checkPassword = document.getElementById("signupPass1").value;
-const username = document.getElementById("signupUsername").value;
 const alertBar = document.getElementById("createAccountMessage");
 if(!validateEmail(email)){
   document.getElementById("emailError").innerHTML = "Invalid Email";
@@ -44,10 +43,7 @@ if(!validatePassword(password)){
   document.getElementById("passwordError").innerHTML = "Password length should be greater than 6 characters";
   return;
 }
-if(!validateUserName(username)){
-  document.getElementById("usernameError").innerHTML = "Username must be greater than 4 characters in length";
-  return;
-}
+
 if (password !== checkPassword) {
   document.getElementById("passwordMatchError").innerHTML = "Passwords do not match";
   return;
@@ -79,7 +75,5 @@ function validatePassword(password){
   return (password.length > 6);
 }
 
-function validateUserName(username){
-  return (username.length > 4);
-}
+
 
