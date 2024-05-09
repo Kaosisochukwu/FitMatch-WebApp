@@ -56,8 +56,8 @@ const db = new PouchDB("users");
  * @throws {Error} - Throws an error if the operation fails, e.g., due to
  * database connectivity issues.
  */
-export async function saveUser(name, email, password) {
-  await db.put({ _id: name, email: email, password: password});
+export async function saveUser(email, password) {
+  await db.put({ _id: email, password: password});
 }
 
 
