@@ -7,6 +7,11 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+/**
+ * Initialize Firebase with the provided configuration.
+ * @param {object} firebaseConfig - Firebase configuration object.
+ * @returns {object} Firebase app instance.
+ */
 const firebaseConfig = {
   apiKey: "AIzaSyAR852lJqljQ5zmX71e8H0GAyVIN2BfWj8",
   authDomain: "fitmatch-login-database.firebaseapp.com",
@@ -23,8 +28,6 @@ const auth = getAuth(app);
 
 
 //get all sign up inputs
-
-
 const signupBtn = document.getElementById("loginContinue");
 
 signupBtn.addEventListener("click", (event) =>{
@@ -32,6 +35,13 @@ event.preventDefault();
 const email = document.getElementById("loginName").value;
 const password = document.getElementById("loginPassword").value;
 const alertBar = document.getElementById("loginMessage");
+
+/**
+ * Signs in the user with the provided email and password.
+ * @param {string} email - The user's email address.
+ * @param {string} password - The user's password.
+ * @param {HTMLElement} alertBar - The HTML element to display the sign-in status message.
+ */
 
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -54,6 +64,11 @@ signInWithEmailAndPassword(auth, email, password)
   });
 });
 
+
+/**
+ * Executes when the DOM content is loaded.
+ * Checks if the user is logged in and adjusts UI accordingly.
+ */
 
 document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("user-info")) {

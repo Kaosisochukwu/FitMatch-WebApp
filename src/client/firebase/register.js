@@ -28,6 +28,13 @@ const passwordCheck = document.getElementById("signupPass1").value;
 const signupBtn = document.getElementById("signupContinue");
 
 
+/**
+ * Sends a registration request with provided email and password to Firebase.
+ * @param {string} email - The email address used for registration.
+ * @param {string} password - The password used for registration.
+ * @param {HTMLElement} alertBar - The HTML element to display the registration status message.
+ */
+
 
 signupBtn.addEventListener("click", (event) =>{
   event.preventDefault();
@@ -48,6 +55,9 @@ if (password !== checkPassword) {
   document.getElementById("passwordMatchError").innerHTML = "Passwords do not match";
   return;
 }
+
+  // Register user with Firebase
+
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
@@ -66,10 +76,22 @@ if (password !== checkPassword) {
   });
 });
 
+/**
+ * Validates the format of an email address.
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} - Returns true if the email address is valid, false otherwise.
+ */
+
 function validateEmail(email){
   const expression = /^[^@]+@\w+(\.\w+)+\w$/;
   return (expression.test(email) === true);
 }
+
+/**
+ * Validates the length of a password.
+ * @param {string} password - The password to validate.
+ * @returns {boolean} - Returns true if the password length is greater than 6 characters, false otherwise.
+ */
 
 function validatePassword(password){
   return (password.length > 6);

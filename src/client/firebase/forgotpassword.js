@@ -16,6 +16,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+/**
+ * Initialize Firebase with the provided configuration.
+ * @param {object} firebaseConfig - Firebase configuration object.
+ * @returns {object} Firebase app instance.
+ */
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -24,6 +29,12 @@ const auth = getAuth(app);
 
 const forgotBtn = document.getElementById("forgotSubmit");
 
+
+/**
+ * Sends a password reset email to the provided email address.
+ * @param {string} email - The email address to send the password reset email to.
+ * @param {HTMLElement} alertBar - The HTML element to display the status message.
+ */
 forgotBtn.addEventListener("click", (event) =>{
 event.preventDefault();
 const email = document.getElementById("forgotPasswordEmail").value;
