@@ -236,15 +236,25 @@ margin-left: 6%;
 /*Workout CSS*/
 
 /* styles.css */
+* /* Resetting default styles */
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-} 
+    
+}
   
+body {
+    /* Ensures the body takes up at least the height of the viewport */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
   
-#workoutContainer { 
+/* #workoutContainer { 
     display: flex; 
     position: absolute;
     top: 20%;
@@ -257,7 +267,7 @@ margin-left: 6%;
     padding: 10px; 
     gap: 20px; 
 } 
-  
+   */
 .inputs { 
     width: 100%; 
     display: flex; 
@@ -274,6 +284,70 @@ margin-left: 6%;
     flex-direction: column; 
 } 
   
+/* Adjust the positioning of the workout container */
+#workoutContainer {
+    width: 95%; /* Adjusted width to 95% of its container for consistency */
+    max-width: 1700px; /* Keep max-width as is if it fits the layout */
+    margin: 50px auto; /* Added more margin on top to push down below header */
+    padding: 20px;
+    border: none; /* Remove border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light grey background */
+    position: relative; /* Relative to its natural position */
+    top: 50px; /* Push down by additional space if needed */
+}
+
+/* Styles for the textarea within the workout container */
+textarea#workoutInput {
+    width: 100%; /* Set width to 100% of its container */
+    max-width: 1600px; /* Slightly less than container max-width to fit padding */
+    min-width: 1500px; /* Ensure it does not become smaller than this */
+    min-height: 200px; /* Minimum height */
+    max-height: 860px; /* Maximum height */
+    padding: 15px; /* Padding inside the textarea */
+    border: 2px solid black; /* Make borders black and thicker */
+    margin-top: 40px; /* Additional space at the top */
+    border-radius: 8px; /* Smooth rounded corners */
+    resize: vertical; /* Allow resizing only vertically */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+
+@keyframes wobbleEffect {
+    0%, 100% {
+        color: #999; /* Original placeholder color */
+        transform: translateX(0);
+    }
+    25% {
+        color: #4CAF50; /* Highlight color that matches the border */
+        transform: translateX(-5px);
+    }
+    50% {
+        color: #4CAF50; /* Keep highlight color at midpoint */
+        transform: translateX(5px);
+    }
+    75% {
+        color: #4CAF50; /* Transition back to highlight color before end */
+        transform: translateX(-3px);
+    }
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    animation: wobbleEffect 4s ease-in-out infinite;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #999;
+    animation: wobbleEffect 4s ease-in-out infinite;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #999;
+    animation: wobbleEffect 4s ease-in-out infinite;
+}
+
 label { 
     font-size: 0.9rem; 
 } 
