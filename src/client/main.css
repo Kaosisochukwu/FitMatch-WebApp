@@ -233,6 +233,7 @@ margin-left: 6%;
 }
 
 
+
 /*Workout CSS*/
 
 /* styles.css */
@@ -312,6 +313,8 @@ textarea#workoutInput {
     resize: vertical; /* Allow resizing only vertically */
     box-sizing: border-box; /* Include padding and border in the width calculation */
     overflow-y: auto; /* Allow vertical scrolling */
+    font-size: 20px;
+    font-weight: 300;
 }
 
 

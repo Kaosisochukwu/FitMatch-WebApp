@@ -164,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
         await readUser();
     });
 
+    
+
     document.querySelector("#workoutLink").addEventListener("click", async function(event) {
         event.preventDefault(); // Prevent the default click behavior
         landingContainer.style.display = 'none';
