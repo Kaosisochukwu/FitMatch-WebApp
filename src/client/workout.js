@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     workoutInput.value = localStorage.getItem('workoutData') || '';
 
     // Initialize with correct height
-    autoResize(workoutInput);
+    autoResize.call(workoutInput);
 });
 
  // Function to dynamically adjust the height of the textarea
@@ -49,3 +49,4 @@ document.addEventListener('DOMContentLoaded', function() {
     this.style.height = 'auto';
     this.style.height = Math.max(this.scrollHeight, 200) + 'px'; // Use 200px as the minimum height
 }
+

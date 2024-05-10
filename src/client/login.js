@@ -135,15 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        // Perform your AJAX/Fetch login
-
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
-    });
-
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
             if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 4) {
@@ -154,14 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
         inputElement.addEventListener("input", e => {
             clearInputError(inputElement);
         });
-    });
-
-
-    document.querySelector("#loginContinue").addEventListener("click", async function(event) {
-        event.preventDefault(); // Prevent the default click behavior
-    
-        // Call the createUser function
-        await readUser();
     });
 
     

@@ -2,7 +2,7 @@
 
 
 #headerRow{
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -251,23 +251,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+ }
 
 
   
-/* #workoutContainer { 
-    display: flex; 
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    width: 1000px; 
-    margin: 1rem auto; 
-    padding: 10px; 
-    gap: 20px; 
-} 
+
    */
 .inputs { 
     width: 100%; 
@@ -295,8 +283,8 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     background-color: #f9f9f9; /* Light grey background */
-    position: relative; /* Relative to its natural position */
-    top: 50px; /* Push down by additional space if needed */
+    position: relative; 
+    top: 100px; /* Push down by additional space if needed */
 }
 
 /* Styles for the textarea within the workout container */
