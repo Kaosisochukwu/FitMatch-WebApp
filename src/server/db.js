@@ -56,10 +56,20 @@ const db = new PouchDB("users");
  * @throws {Error} - Throws an error if the operation fails, e.g., due to
  * database connectivity issues.
  */
-export async function saveUser(email, password) {
-  await db.put({ _id: email, password: password});
+export async function saveUser(email, text) {
+  console.log("saveed user");
+  await db.put({ _id: email, text: text});
 }
 
+export async function seeAll() {
+  try {
+    const result = await db.allDocs({ include_docs: true });
+    return result.rows; // Return the fetched documents
+  } catch (error) {
+    console.error('Error fetching all documents:', error);
+    throw error; // Throw the error to propagate it to the caller
+  }
+}
 
 /**
  * Asynchronously saves reads database with a specified name and
@@ -76,36 +86,8 @@ export async function saveUser(email, password) {
  * database connectivity issues.
  */
 
-export async function readUser(searchName, searchPassword) {
-  return new Promise((resolve, reject) => {
-    db.find({
-      selector: {
-        $or: [
-          { $and: [
-              { name: { $eq: searchName } },
-              { password: { $eq: searchPassword } }
-            ]
-          },
-          { $and: [
-              { email: { $eq: searchName } },
-              { password: { $eq: searchPassword } }
-            ]
-          }
-        ]
-      }
-    }).then(function(result) {
-      if (result.docs.length > 0) {
-        // Return the ID of the first matching document
-        resolve(result.docs[0]._id);
-      } else {
-        // No matching document found
-        reject(new Error('User not found'));
-      }
-    }).catch(function(err) {
-      // Handle errors
-      reject(err);
-    });
-  });
+export async function getUser(searchName) {
+  
 }
 
 

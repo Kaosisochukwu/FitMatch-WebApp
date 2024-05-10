@@ -51,17 +51,19 @@
     "validate-html": "html-validate 'src/**/*.html'",
     "milestone-02": "http-server src/client -p 3000 -c-1 -o -s",
     "prettier": "prettier 'src/**/*.{html,css,js}' --write",
-    "start": "concurrently \"node src/server/server.js\" \"http-server -p 3000 -a localhost -c-1 -o src/client\""
+    "start": "concurrently \"node src/server/server.js\" \"(start http://localhost:3260 || xdg-open http://localhost:3260 || open http://localhost:3260)\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "html-validate": "^8.18.1",
     "http-server": "^14.1.1",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "open": "^8.0.7"  
   },
   "dependencies": {
     "express": "^4.19.2",
     "morgan": "^1.10.0",
+    "open": "^10.1.0",
     "pouchdb": "^8.0.1",
     "serve": "^12.0.0"
   }
