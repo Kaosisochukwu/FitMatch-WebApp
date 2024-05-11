@@ -101,6 +101,16 @@ export async function setText(user_id, text) {
 }
 
 
+/**
+ * see all users
+ *
+ * @async
+ * @returns {Promise<void>} - A promise that resolves when the counter has been
+ * successfully saved.
+ * @throws {Error} - Throws an error if the operation fails, e.g., due to
+ * database connectivity issues.
+ */
+
 export async function seeAll() {
   try {
     const result = await db.allDocs({ include_docs: true });
