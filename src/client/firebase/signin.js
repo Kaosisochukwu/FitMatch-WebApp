@@ -52,7 +52,6 @@ signInWithEmailAndPassword(auth, email, password)
     }))
      getUser(user.uid)
                 .then((data) => {
-                  window.alert("HIIII" + data.user.text);
                  sessionStorage.setItem("workoutData", data.user.text);
                  console.log('User data:', data);
                     alertBar.textContent = "Successfully Logged In";

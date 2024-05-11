@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         forgotPasswordForm.classList.add("form--hidden");
         loginContainer.style.display = 'none';
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         landingContainer.style.display = ''; 
     });
   
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.remove("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkLogin").addEventListener("click", e => {
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkLoginPass").addEventListener("click", e => {
@@ -84,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkForgotPassword").addEventListener("click", e => {
@@ -92,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.remove("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     signupBtn.addEventListener("click", e => {
@@ -104,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
@@ -117,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
@@ -130,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
@@ -153,11 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault(); // Prevent the default click behavior
         landingContainer.style.display = 'none';
         workoutContainer.style.display = "";
+        workoutContainer.classList.remove("hidden");
         loginForm.classList.add("form--hidden");
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");  
         loginContainer.style.display = 'none';
-        // Call the createUser function
+        
     });
     
 });
