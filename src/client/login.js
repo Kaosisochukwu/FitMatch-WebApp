@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         forgotPasswordForm.classList.add("form--hidden");
         loginContainer.style.display = 'none';
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         landingContainer.style.display = ''; 
     });
   
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.remove("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkLogin").addEventListener("click", e => {
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkLoginPass").addEventListener("click", e => {
@@ -84,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     document.querySelector("#linkForgotPassword").addEventListener("click", e => {
@@ -92,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.remove("form--hidden");
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
     });
 
     signupBtn.addEventListener("click", e => {
@@ -104,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
@@ -117,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
@@ -130,19 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
         landingContainer.style.display = 'none';   
         loginContainer.style.display = '';  
         workoutContainer.style.display = 'none';
+        workoutContainer.classList.add("hidden");
         }, 400); 
     });
 
 
-
-
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        // Perform your AJAX/Fetch login
-
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
-    });
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
@@ -156,104 +155,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-    document.querySelector("#loginContinue").addEventListener("click", async function(event) {
-        event.preventDefault(); // Prevent the default click behavior
     
-        // Call the createUser function
-        await readUser();
-    });
 
     document.querySelector("#workoutLink").addEventListener("click", async function(event) {
         event.preventDefault(); // Prevent the default click behavior
         landingContainer.style.display = 'none';
         workoutContainer.style.display = "";
+        workoutContainer.classList.remove("hidden");
         loginForm.classList.add("form--hidden");
         createAccountForm.classList.add("form--hidden");
         forgotPasswordForm.classList.add("form--hidden");  
         loginContainer.style.display = 'none';
-        // Call the createUser function
+        
     });
     
 });
 
-
-/*Server Side Scripting*/
-
-const URL = "http://localhost:3260"; // URL of our server
-
-/**
- * Creates a user asynchronously.
- * This function sends a POST request to the server to create a new user with the provided user name.
- * It first retrieves the user name from an input field with the id 'signupUsername'.
- * If the user name is empty, it displays an alert asking the user to enter a user name.
- * After sending the request, it updates the innerHTML of an element with the class 'form__input-error-message' with the response data.
- * @returns {Promise<void>} A promise that resolves once the user creation process is complete.
- */
-async function createUser() {
-    // Get the user details from the input fields
-    const user_id = document.querySelector("#signupUsername").value.trim();
-    const user_email = document.querySelector("#signupEmail").value.trim();
-    const user_pass = document.querySelector("#signupPass").value.trim();
-    const user_pass1 = document.querySelector("#signupPass1").value.trim();
-
-    // Check if the user name is empty
-    if (user_id === "") {
-        alert("Please Enter a user name");
-        return;
-    }
-    // Check if the passwords match
-    if (user_pass !== user_pass1) {
-        alert("Passwords do not match");
-        return;
-    }
-
-
-    try {
-        // Send a request to create the user
-        const response = await fetch(`${URL}/create?name=${user_id}&email=${user_email}&password=${user_pass}`, {
-            method: "POST",
-        });
-
-        const responseData =  await response.text();
-
-        document.querySelector("#createAccountMessage").innerHTML = responseData;
-        
-    } catch (error) {
-        console.error("Error creating user:", error);
-        // Handle error, show an alert or log it
-    }
-}
-
-
-async function readUser(){
-    const login_id = document.querySelector("#loginName").value.trim();
-    const login_password = document.querySelector("#loginPassword").value.trim();
-   
-    if (login_id === "") {
-        alert("Please Enter a user name or email");
-        return;
-    }
-    // Check if the passwords match
-    if (login_password  === "") {
-        alert("Please enter Password");
-        return;
-    }
-   
-
-    
-    try {
-        // Send a request to create the user
-        const response = await fetch(`${URL}/read?name=${login_id}&password=${login_password}`, {
-            method: "GET",
-        });
-        const responseData =  await response.text();
-    } catch (error) {
-        console.error("Error creating user:", error);
-        // Handle error, show an alert or log it
-    }
-
-}
 
 
 

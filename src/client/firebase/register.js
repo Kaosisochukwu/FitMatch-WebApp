@@ -28,6 +28,13 @@ const passwordCheck = document.getElementById("signupPass1").value;
 const signupBtn = document.getElementById("signupContinue");
 
 
+/**
+ * Sends a registration request with provided email and password to Firebase.
+ * @param {string} email - The email address used for registration.
+ * @param {string} password - The password used for registration.
+ * @param {HTMLElement} alertBar - The HTML element to display the registration status message.
+ */
+
 
 signupBtn.addEventListener("click", (event) =>{
   event.preventDefault();
@@ -48,12 +55,16 @@ if (password !== checkPassword) {
   document.getElementById("passwordMatchError").innerHTML = "Passwords do not match";
   return;
 }
+
+  // Register user with Firebase
+
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
     // ...
     alertBar.textContent = "Account Successfully Created"
+    createUser(user.uid);
     setTimeout(() => {
       }, 1400);
     window.location.href = "index.html"
@@ -66,14 +77,60 @@ if (password !== checkPassword) {
   });
 });
 
+/**
+ * Validates the format of an email address.
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} - Returns true if the email address is valid, false otherwise.
+ */
+
 function validateEmail(email){
   const expression = /^[^@]+@\w+(\.\w+)+\w$/;
   return (expression.test(email) === true);
 }
 
+/**
+ * Validates the length of a password.
+ * @param {string} password - The password to validate.
+ * @returns {boolean} - Returns true if the password length is greater than 6 characters, false otherwise.
+ */
+
 function validatePassword(password){
   return (password.length > 6);
 }
 
+
+
+
+
+
+
+/*Server Side Scripting*/
+
+const URL = "http://localhost:3260"; // URL of our server
+
+/**
+ * Creates a user asynchronously.
+ * This function sends a POST request to the server to create a new user with the provided user name.
+ * It first retrieves the user name from an input field with the id 'signupUsername'.
+ * If the user name is empty, it displays an alert asking the user to enter a user name.
+ * After sending the request, it updates the innerHTML of an element with the class 'form__input-error-message' with the response data.
+ * @returns {Promise<void>} A promise that resolves once the user creation process is complete.
+ */
+async function createUser(user) {
+    // Get the user details from the input fields
+     
+
+        // Send a request to create the user
+  
+        const response = await fetch('/create', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ user_id: user })
+      });
+
+   
+}
 
 

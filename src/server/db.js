@@ -56,10 +56,70 @@ const db = new PouchDB("users");
  * @throws {Error} - Throws an error if the operation fails, e.g., due to
  * database connectivity issues.
  */
-export async function saveUser(name, email, password) {
-  await db.put({ _id: name, email: email, password: password});
+export async function saveUser(user_id) {
+  console.log("saveed user");
+  await db.put({ _id: user_id, text: " "});
 }
 
+
+/**
+ * Asynchronously sets the text for a user with the specified user ID.
+ *
+ * @async
+ * @param {string} user_id - The unique identifier for the user.
+ * @param {string} text - The text to set for the user.
+ * @returns {Promise<void>} - A promise that resolves when the text has been
+ * successfully set for the user.
+ * @throws {Error} - Throws an error if the operation fails, e.g., due to
+ * database connectivity issues.
+ */
+export async function setText(user_id, text) {
+  try {
+    let user;
+    try {
+      // Retrieve the latest version of the user document
+      user = await db.get(user_id);
+    } catch (error) {
+      if (error.status !== 404) {
+        // Re-throw error if it's not a "not found" error
+        throw error;
+      }
+      // Create a new user document if it doesn't exis
+    }
+
+    // Update the text field
+    user.text = text;
+
+    // Save the updated user document back to the database
+    await db.put(user);
+
+    console.log("Text set successfully for user:", user_id);
+  } catch (error) {
+    console.error("Error setting text for user:", error);
+    throw new Error("Failed to set text for user");
+  }
+}
+
+
+/**
+ * see all users
+ *
+ * @async
+ * @returns {Promise<void>} - A promise that resolves when the counter has been
+ * successfully saved.
+ * @throws {Error} - Throws an error if the operation fails, e.g., due to
+ * database connectivity issues.
+ */
+
+export async function seeAll() {
+  try {
+    const result = await db.allDocs({ include_docs: true });
+    return result.rows; // Return the fetched documents
+  } catch (error) {
+    console.error('Error fetching all documents:', error);
+    throw error; // Throw the error to propagate it to the caller
+  }
+}
 
 /**
  * Asynchronously saves reads database with a specified name and
@@ -76,39 +136,21 @@ export async function saveUser(name, email, password) {
  * database connectivity issues.
  */
 
-export async function readUser(searchName, searchPassword) {
-  return new Promise((resolve, reject) => {
-    db.find({
-      selector: {
-        $or: [
-          { $and: [
-              { name: { $eq: searchName } },
-              { password: { $eq: searchPassword } }
-            ]
-          },
-          { $and: [
-              { email: { $eq: searchName } },
-              { password: { $eq: searchPassword } }
-            ]
-          }
-        ]
-      }
-    }).then(function(result) {
-      if (result.docs.length > 0) {
-        // Return the ID of the first matching document
-        resolve(result.docs[0]._id);
-      } else {
-        // No matching document found
-        reject(new Error('User not found'));
-      }
-    }).catch(function(err) {
-      // Handle errors
-      reject(err);
-    });
-  });
+export async function getUser(user_id) {
+  try {
+    const user = await db.get(user_id);
+    return user; // Return the user document if found
+  } catch (error) {
+    if (error.name === 'not_found') {
+      // User document not found
+      throw new Error(`User with ID '${user_id}' not found`);
+    } else {
+      // Other error (e.g., database connectivity issue)
+      console.error('Error fetching user document:', error);
+      throw error; // Throw the error to propagate it to the caller
+    }
+  }
 }
-
-
 
 
 
