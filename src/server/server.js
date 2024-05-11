@@ -31,11 +31,10 @@ app.get('/seeAll', async (req, res) => {
 
 app.post('/create', async (req, res) => {
   const { user_id } = req.body;
-  
   try {
     // Call the function from db.js to save the user
     console.log(user_id);
-    await db.saveUser(user_id, ""); // Assuming the second parameter is optional
+    await db.saveUser(user_id); // Assuming the second parameter is optional
     
     res.status(200).send(`User ${user_id} successfully created`);
   } catch (err) {
@@ -43,6 +42,41 @@ app.post('/create', async (req, res) => {
     res.status(500).send("Internal Server Error: Unable to create user");
   }
 });
+
+
+
+app.get('/get', async (req, res) => {
+  const { user_id } = req.query; // Access user_id from query parameters
+  try {
+    // Call the function from db.js to get the user
+    const user = await db.getUser(user_id);
+    console.log(user); // Assuming db.getUser returns the user object
+    res.status(200).json({user}); // Send user ID and user object in the response
+  } catch (err) {
+    console.error("/get failed:", err);
+    res.status(500).send("Internal Server Error: Unable to get user");
+  }
+});
+
+
+app.post('/setText', async (req, res) => {
+  const {user_id, text} = req.body;
+  try {
+    // Call the function from db.js to save the user
+  
+    await db.setText(user_id, text); // Assuming the second parameter is optional
+    
+    res.status(200).send(`User ${user_id} successfully created`);
+  } catch (err) {
+    console.error("/create fail:", err);
+    res.status(500).send("Internal Server Error: Unable to create user");
+  }
+});
+
+
+
+
+
 
 app.listen(port, () => {
   console.log("Server started on port 3260");

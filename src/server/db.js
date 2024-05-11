@@ -56,10 +56,50 @@ const db = new PouchDB("users");
  * @throws {Error} - Throws an error if the operation fails, e.g., due to
  * database connectivity issues.
  */
-export async function saveUser(user_id, text) {
+export async function saveUser(user_id) {
   console.log("saveed user");
-  await db.put({ _id: user_id, text: text});
+  await db.put({ _id: user_id, text: " "});
 }
+
+
+/**
+ * Asynchronously sets the text for a user with the specified user ID.
+ *
+ * @async
+ * @param {string} user_id - The unique identifier for the user.
+ * @param {string} text - The text to set for the user.
+ * @returns {Promise<void>} - A promise that resolves when the text has been
+ * successfully set for the user.
+ * @throws {Error} - Throws an error if the operation fails, e.g., due to
+ * database connectivity issues.
+ */
+export async function setText(user_id, text) {
+  try {
+    let user;
+    try {
+      // Retrieve the latest version of the user document
+      user = await db.get(user_id);
+    } catch (error) {
+      if (error.status !== 404) {
+        // Re-throw error if it's not a "not found" error
+        throw error;
+      }
+      // Create a new user document if it doesn't exis
+    }
+
+    // Update the text field
+    user.text = text;
+
+    // Save the updated user document back to the database
+    await db.put(user);
+
+    console.log("Text set successfully for user:", user_id);
+  } catch (error) {
+    console.error("Error setting text for user:", error);
+    throw new Error("Failed to set text for user");
+  }
+}
+
 
 export async function seeAll() {
   try {

@@ -3,5 +3,6 @@
  */
 document.getElementById("logoutList").addEventListener("click",(event)=>{
     sessionStorage.setItem("user-info", "");
+    sessionStorage.setItem("workoutData", " ");
     window.location.href = "index.html"
 });

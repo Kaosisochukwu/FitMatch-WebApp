@@ -1,0 +1,14 @@
+2024/05/10-21:49:03.232 4a08 Recovering log #90
+2024/05/10-21:49:03.232 4a08 Level-0 table #92: started
+2024/05/10-21:49:03.237 4a08 Level-0 table #92: 237 bytes OK
+2024/05/10-21:49:03.248 4a08 Delete type=0 #90
+2024/05/10-21:49:03.249 4a08 Delete type=3 #88
+2024/05/10-21:49:03.249 4bdc Compacting 4@0 + 1@1 files
+2024/05/10-21:49:03.254 4bdc Generated table #94@0: 48 keys, 4855 bytes
+2024/05/10-21:49:03.254 4bdc Compacted 4@0 + 1@1 files => 4855 bytes
+2024/05/10-21:49:03.258 4bdc compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/05/10-21:49:03.258 4bdc Delete type=2 #81
+2024/05/10-21:49:03.258 4bdc Delete type=2 #83
+2024/05/10-21:49:03.258 4bdc Delete type=2 #86
+2024/05/10-21:49:03.259 4bdc Delete type=2 #89
+2024/05/10-21:49:03.259 4bdc Delete type=2 #92
